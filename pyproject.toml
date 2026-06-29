@@ -1,0 +1,27 @@
+[project]
+name = "dbt-customer-futures"
+version = "0.1.0"
+description = "dbt + DuckDB repo: customer-future modelling on the Olist dataset, with a Python OOP bolt-on"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dbt-core>=1.11.11",
+    "dbt-duckdb>=1.10.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.15.20",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/customer_futures"]
+
+[tool.pytest.ini_optional]
+testpaths = ["test"]
+pythonpaths = ["src"]
